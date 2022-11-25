@@ -1,8 +1,9 @@
+/* eslint-disable react/prop-types */
 import React from 'react';
 import { DataGrid } from '@mui/x-data-grid';
 const EvaluationBox = (props) => {
     let rows = [];
-    let { list }  = props;
+    let { list, selectRow }  = props;
 
     for (let i = 0; i <list.length; i++) {
         rows.push({
@@ -16,16 +17,24 @@ const EvaluationBox = (props) => {
     }
       
     const columns = [
-        { field: 'col1', headerName: '피평가자', width: 150 },
-        { field: 'col2', headerName: '업무수행 평점', width: 150 },
-        { field: 'col3', headerName: '업무수행 내용', width: 150 },
-        { field: 'col4', headerName: '커뮤니케이션 평점', width: 150 },
-        { field: 'col5', headerName: '커뮤니케이션 내용', width: 150 },
+        { field: 'col1', headerName: '피평가자', flex: 1  },
+        { field: 'col2', headerName: '업무수행 평점',flex: 1  },
+        { field: 'col3', headerName: '업무수행 내용',flex: 1  },
+        { field: 'col4', headerName: '커뮤니케이션 평점', flex: 1  },
+        { field: 'col5', headerName: '커뮤니케이션 내용', flex: 1  },
     ];
     return (
-        <div style={{ width: 860}}>
-                <DataGrid autoHeight rows={rows} columns={columns} hideFooter/>
-
+        <div style={{ width: '100%'}}>
+                <DataGrid 
+                        autoHeight 
+                        rows={rows} 
+                        columns={columns} 
+                        isRowSelectable={(params) => params.row.col2 === '미평가' }
+                        onSelectionModelChange={(ids) => {
+                            const selectedRowsData = ids.map((id) => rows.find((row) => row.id === id));
+                            selectRow(selectedRowsData[0].col1);
+                        }}
+                        hideFooter/>
         </div>
     )
 }
