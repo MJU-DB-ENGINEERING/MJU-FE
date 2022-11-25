@@ -6,7 +6,7 @@ import Paper from '@mui/material/Paper';
 import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
 import Grid from '@mui/material/Grid';
-
+import { updateProjectPMEvaluation } from "../../common/api";
 
 
 const EvaluationInputBox = (props) => {
@@ -24,6 +24,19 @@ const EvaluationInputBox = (props) => {
         setCommunicationComment(event.target.value);
     }
 
+    const saveHandler = () => {
+        const payload = {
+            "businessComment": businessComment,
+            "businessRate": businessRating,
+            "communicationComment": communicationComment,
+            "communicationRate": communicationRating,
+            "evaluated": evaluated,
+            "evaluator": evaluator,
+            "projectId": projectId
+        }
+        updateProjectPMEvaluation(payload);
+    }
+    
     return (
         <>
         <Paper elevation={16} >
@@ -77,7 +90,7 @@ const EvaluationInputBox = (props) => {
                     onChange={communicationHandler}
                 />
                 <Grid container justifyContent="flex-end" >
-                    <Button variant="outlined" sx={{ padding: 1, margin: 2 }}>저장하기</Button>
+                    <Button variant="outlined" sx={{ padding: 1, margin: 2 }} onClick={saveHandler}>저장하기</Button>
                 </Grid>
             </Box>
         </Paper>

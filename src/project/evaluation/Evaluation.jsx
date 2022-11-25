@@ -1,10 +1,10 @@
 import React from "react";
-import EvaluationInputBox from "./EvaluationBox";
+import EvaluationInputBox from "./EvaluationInputBox";
 
 const Evaluation = () => (
     <>
         <EvaluationInputBox data={{
-            "evaluated": '최윤후',
+            "evaluated": 46,
             "evaluator": 64,
             "projectId": 7
         }} />
