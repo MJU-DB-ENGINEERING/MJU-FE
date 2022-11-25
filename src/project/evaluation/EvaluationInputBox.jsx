@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import React, { useState } from "react";
 import Rating from '@mui/material/Rating';
 import Typography from '@mui/material/Typography';
@@ -7,9 +8,10 @@ import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
 import Grid from '@mui/material/Grid';
 import { updateProjectPMEvaluation } from "../../common/api";
-
+import { useNavigate } from "react-router-dom";
 
 const EvaluationInputBox = (props) => {
+    const navigate = useNavigate();
     const { evaluated, evaluator, projectId } = props.data;
     const [businessComment, setBusinessComment] = useState('');
     const [businessRating, setBusinessRating] = useState(0);
@@ -24,19 +26,20 @@ const EvaluationInputBox = (props) => {
         setCommunicationComment(event.target.value);
     }
 
-    const saveHandler = () => {
+    const saveHandler = async () => {
         const payload = {
             "businessComment": businessComment,
             "businessRate": businessRating,
             "communicationComment": communicationComment,
             "communicationRate": communicationRating,
-            "evaluated": evaluated,
-            "evaluator": evaluator,
+            "evaluated": 46, // fix-me
+            "evaluator": 64, // fix-me
             "projectId": projectId
         }
-        updateProjectPMEvaluation(payload);
+        await updateProjectPMEvaluation(payload);
+        navigate(-1);
     }
-    
+
     return (
         <>
         <Paper elevation={16} >

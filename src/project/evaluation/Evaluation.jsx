@@ -1,14 +1,19 @@
 import React from "react";
 import EvaluationInputBox from "./EvaluationInputBox";
+import usePmEvaluation from "./usePmEvaluation";
 
-const Evaluation = () => (
-    <>
-        <EvaluationInputBox data={{
-            "evaluated": 46,
-            "evaluator": 64,
-            "projectId": 7
-        }} />
-    </>
-)
+const Evaluation = () => {
+    const { projectId, evaluator, evaluated } = usePmEvaluation();
+    return (
+        <>
+            <EvaluationInputBox data={{
+                "evaluated": evaluated,
+                "evaluator": evaluator,
+                "projectId": projectId
+            }} />
+        </>
+    );
+
+}
 
 export default Evaluation;
