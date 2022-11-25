@@ -11,6 +11,9 @@
     "test": "vitest"
   },
   "dependencies": {
+    "@emotion/react": "^11.10.5",
+    "@emotion/styled": "^11.10.5",
+    "@mui/material": "^5.10.15",
     "cross-fetch": "^3.1.5",
     "http-proxy-middleware": "^2.0.6",
     "react": "^18.2.0",
