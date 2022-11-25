@@ -1,6 +1,6 @@
 
 // const HOST_URL = 'http://13.125.105.3:50038/';
-const HOST_URL = '';
+const HOST_URL = '/'; // for CORS
 
 import { fetch } from 'cross-fetch';
 
