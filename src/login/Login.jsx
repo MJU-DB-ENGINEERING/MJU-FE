@@ -1,6 +1,6 @@
 import React from "react";
 
-const Login = async () => {
+const Login = () => {
     return (
         <h1>Hello Login!</h1>
     );
