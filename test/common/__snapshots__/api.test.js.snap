@@ -1,0 +1,19 @@
+// Vitest Snapshot v1
+
+exports[`Login > snapshot 1`] = `
+{
+  "foo": "bar",
+}
+`;
+
+exports[`Login success test > snapshot 1`] = `
+{
+  "foo": "bar",
+}
+`;
+
+exports[`suite name > snapshot 1`] = `
+{
+  "foo": "bar",
+}
+`;

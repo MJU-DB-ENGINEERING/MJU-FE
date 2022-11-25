@@ -1,5 +1,6 @@
 
-const HOST_URL = 'https://virtserver.swaggerhub.com/BEMELON/MJU_DB/1.0.0/';
+const HOST_URL = 'http://13.125.105.3:50038/';
+import { fetch } from 'cross-fetch';
 
 export const doLogin = async (userId, userPw) => {
     const res = await fetch(HOST_URL + 'v1/login', {
@@ -11,10 +12,10 @@ export const doLogin = async (userId, userPw) => {
             "userId": userId,
             "userPw": userPw,
         }),
-    }).then((response) => response.json());
-
-    console.log(res);
-    return res;
+    });
+    if (res.status == 200)
+        return res.json();
+    return undefined;
 }
 
 export const searchProject = async (projectName) => {
@@ -25,7 +26,6 @@ export const searchProject = async (projectName) => {
         },
     }).then((response) => response.json());
 
-    console.log(res);
     return res;
 }
 
@@ -37,7 +37,6 @@ export const getProjectDetail = async (projectName) => {
         }
     }).then((response) => response.json());
 
-    console.log(res);
     return res;
 }
 
@@ -63,12 +62,10 @@ export const updateProjectPMEvaluation = async (props) => {
         }),
     }).then((response) => response.json());
 
-    console.log(res);
     return res;
 }
 
-export const getProjectPMEvaluation = async (props) => {
-    const {evaluatedName, evaluatorName, id } = props;
+export const getProjectPMEvaluation = async (evaluatorName, projectid) => {
 
     const res = fetch(HOST_URL + 'v1/view/evaluation', {
         method: 'POST',
@@ -76,12 +73,10 @@ export const getProjectPMEvaluation = async (props) => {
             "Content-Type": "application/json",
         },
         body: {
-            'evaluatedName': evaluatedName,
             'evaluatorName': evaluatorName,
-            'id': id,
+            'projectid': projectid,
         }
     }).then((res) => res.json());
 
-    console.log(res);
     return (res);
 }
