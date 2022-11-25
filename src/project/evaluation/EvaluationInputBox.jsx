@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import React, { useState } from "react";
 import Rating from '@mui/material/Rating';
 import Typography from '@mui/material/Typography';
@@ -6,10 +7,11 @@ import Paper from '@mui/material/Paper';
 import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
 import Grid from '@mui/material/Grid';
-
-
+import { updateProjectPMEvaluation } from "../../common/api";
+import { useNavigate } from "react-router-dom";
 
 const EvaluationInputBox = (props) => {
+    const navigate = useNavigate();
     const { evaluated, evaluator, projectId } = props.data;
     const [businessComment, setBusinessComment] = useState('');
     const [businessRating, setBusinessRating] = useState(0);
@@ -22,6 +24,20 @@ const EvaluationInputBox = (props) => {
 
     const communicationHandler = (event) => {
         setCommunicationComment(event.target.value);
+    }
+
+    const saveHandler = async () => {
+        const payload = {
+            "businessComment": businessComment,
+            "businessRate": businessRating,
+            "communicationComment": communicationComment,
+            "communicationRate": communicationRating,
+            "evaluated": 46, // fix-me
+            "evaluator": 64, // fix-me
+            "projectId": projectId
+        }
+        await updateProjectPMEvaluation(payload);
+        navigate(-1);
     }
 
     return (
@@ -77,7 +93,7 @@ const EvaluationInputBox = (props) => {
                     onChange={communicationHandler}
                 />
                 <Grid container justifyContent="flex-end" >
-                    <Button variant="outlined" sx={{ padding: 1, margin: 2 }}>저장하기</Button>
+                    <Button variant="outlined" sx={{ padding: 1, margin: 2 }} onClick={saveHandler}>저장하기</Button>
                 </Grid>
             </Box>
         </Paper>
