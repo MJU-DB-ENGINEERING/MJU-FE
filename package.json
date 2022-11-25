@@ -7,9 +7,11 @@
     "dev": "vite",
     "build": "vite build",
     "preview": "vite preview",
-    "lint": "yarn run eslint \"**/*.{js,jsx}\" --fix"
+    "lint": "yarn run eslint \"**/*.{js,jsx}\" --fix",
+    "test": "jest"
   },
   "dependencies": {
+    "jest": "^29.3.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-router-dom": "^6.4.3"
