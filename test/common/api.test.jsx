@@ -42,8 +42,8 @@ describe('Get Project Detail', () => {
 
 describe('Get Project Evaluations', () => {
     it ('Case - Success', async () => {
-        const res = await getProjectPMEvaluation('박예연', 3);
-
+        const res = await getProjectPMEvaluation("박예연", 3);
+        
         const e1 = res.find((e) => e.evaluated === '윤윤연'); 
         assert.equal(e1.projectId , 3);
         assert.equal(e1.evaluator, '박예연');

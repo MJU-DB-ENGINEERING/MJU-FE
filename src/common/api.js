@@ -1,5 +1,6 @@
 
 const HOST_URL = 'http://13.125.105.3:50038/';
+
 import { fetch } from 'cross-fetch';
 
 export const doLogin = async (userId, userPw) => {
@@ -66,16 +67,15 @@ export const updateProjectPMEvaluation = async (props) => {
 }
 
 export const getProjectPMEvaluation = async (evaluatorName, projectid) => {
-
-    const res = fetch(HOST_URL + 'v1/view/evaluation', {
+    const res = fetch(HOST_URL + 'v1/view/evalutaion', {
         method: 'POST',
         headers: {
             "Content-Type": "application/json",
         },
-        body: {
+        body: JSON.stringify({
             'evaluatorName': evaluatorName,
-            'projectid': projectid,
-        }
+            'projectId': projectid,
+        })
     }).then((res) => res.json());
 
     return (res);
