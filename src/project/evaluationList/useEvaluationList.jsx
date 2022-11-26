@@ -1,11 +1,12 @@
 import { useEffect, useState } from "react";
-import { getProjectPMEvaluation } from "../../common/api";
+import { getProjectDetail, getProjectPMEvaluation } from "../../common/api";
 import { useNavigate, useParams } from "react-router-dom";
 
 const useEvaluationList = () => {
     const naviage = useNavigate();
     const params = useParams();
     const [evaluationList, setEvaluationList] = useState([]);
+    const [projectParticipants, setProjectParticipants] = useState([]);
     const [selectedEmployee, setRow] = useState('');
     const [btnActivated, setBtn] = useState(false);
 
@@ -13,6 +14,9 @@ const useEvaluationList = () => {
         async function fetch () {
             const list = await getProjectPMEvaluation('박예연', params.project_id);
             setEvaluationList(list);
+
+            const list2 = await getProjectDetail('써머프로젝트2');
+            setProjectParticipants(list2);
         }
         fetch();
     }, []);
@@ -36,6 +40,7 @@ const useEvaluationList = () => {
         btnClickHandler,
         selectRow,
         btnActivated,
+        projectParticipants,
     }
 }
 
