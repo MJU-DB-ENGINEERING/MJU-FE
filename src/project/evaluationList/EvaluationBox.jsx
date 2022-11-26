@@ -1,6 +1,8 @@
 /* eslint-disable react/prop-types */
 import React from 'react';
 import { DataGrid } from '@mui/x-data-grid';
+import Rating from '@mui/material/Rating';
+
 const EvaluationBox = (props) => {
     let rows = [];
     let { list, selectRow }  = props;
@@ -17,10 +19,26 @@ const EvaluationBox = (props) => {
     }
       
     const columns = [
-        { field: 'col1', headerName: '피평가자', flex: 1  },
-        { field: 'col2', headerName: '업무수행 평점',flex: 1  },
+        { field: 'col1', headerName: '피평가자', flex: 0.5  },
+        { field: 'col2', headerName: '업무수행 평점',flex: 0.5, renderCell: (params) => {
+            return (
+                <Rating
+                    readOnly
+                    name="simple-controlled"
+                    size="large"
+                    value={params.row.col3 === '미평가' ? 0 : params.row.col3} />
+            );
+        }},
         { field: 'col3', headerName: '업무수행 내용',flex: 1  },
-        { field: 'col4', headerName: '커뮤니케이션 평점', flex: 1  },
+        { field: 'col4', headerName: '커뮤니케이션 평점', flex: 0.5, renderCell: (params) => {
+            return (
+                <Rating
+                    readOnly
+                    name="simple-controlled"
+                    size="large"
+                    value={params.row.col5 === '미평가' ? 0 : params.row.col5} />
+            );
+        }  },
         { field: 'col5', headerName: '커뮤니케이션 내용', flex: 1  },
     ];
     return (
