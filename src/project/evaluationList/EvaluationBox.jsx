@@ -20,7 +20,8 @@ const EvaluationBox = (props) => {
       
     const columns = [
         { field: 'col1', headerName: '피평가자', flex: 0.5  },
-        { field: 'col2', headerName: '업무수행 평점',flex: 0.5, renderCell: (params) => {
+        { field: 'col2', headerName: '업무수행 내용',flex: 1  },
+        { field: 'col3', headerName: '업무수행 평점',flex: 0.5, renderCell: (params) => {
             return (
                 <Rating
                     readOnly
@@ -29,8 +30,8 @@ const EvaluationBox = (props) => {
                     value={params.row.col3 === '미평가' ? 0 : params.row.col3} />
             );
         }},
-        { field: 'col3', headerName: '업무수행 내용',flex: 1  },
-        { field: 'col4', headerName: '커뮤니케이션 평점', flex: 0.5, renderCell: (params) => {
+        { field: 'col4', headerName: '커뮤니케이션 내용', flex: 1  },
+        { field: 'col5', headerName: '커뮤니케이션 평점', flex: 0.5, renderCell: (params) => {
             return (
                 <Rating
                     readOnly
@@ -39,7 +40,7 @@ const EvaluationBox = (props) => {
                     value={params.row.col5 === '미평가' ? 0 : params.row.col5} />
             );
         }  },
-        { field: 'col5', headerName: '커뮤니케이션 내용', flex: 1  },
+     
     ];
     return (
         <div style={{ width: '100%'}}>
