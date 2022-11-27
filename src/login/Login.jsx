@@ -9,14 +9,14 @@ function Login() {
   useEffect(() => {
     if (sessionStorage.getItem("user_name") === null) {
       // sessionStorage 에 user_id 라는 key 값으로 저장된 값이 없다면
-      console.log("isLogin ?? :: ", isLogin);
+    //   console.log("isLogin ?? :: ", isLogin);
     } else {
       // sessionStorage 에 user_id 라는 key 값으로 저장된 값이 있다면
       // 로그인 상태 변경
       setIsLogin(true);
-      console.log("isLogin ?? :: ", isLogin);
+    //   console.log("isLogin ?? :: ", isLogin);
     }
-  });
+  }, []);
 
   const onLogout = () => {
     // sessionStorage 에 user_id 로 저장되어있는 아이템을 삭제한다.
@@ -26,9 +26,9 @@ function Login() {
   };
 
   const onClickLogin = () => {
-    console.log("click login");
-    console.log("ID : ", id);
-    console.log("PW : ", pw);
+//     console.log("click login");
+//     console.log("ID : ", id);
+//     console.log("PW : ", pw);
     doLogin(id, pw)
       .then((res) => {
         if (res != undefined) {

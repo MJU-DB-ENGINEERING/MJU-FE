@@ -74,11 +74,11 @@ export default function PrimarySearchAppBar() {
       setNavIntems([
         { name: "로그인", link: "/login" },
         { name: "프로젝트 검색", link: "/project/search" },
-        { name: "평가 리스트 조회", link: "/project/7/evaluation" },
-        { name: "프로젝트 평가", link: "/project/7/evaluation" },
+        // { name: "평가 리스트 조회", link: "/project/7/evaluation" },
+        // { name: "프로젝트 평가", link: "/project/7/evaluation" },
       ]);
     }
-  });
+  }, []);
 
   const handleProfileMenuOpen = (event) => {
     setAnchorEl(event.currentTarget);

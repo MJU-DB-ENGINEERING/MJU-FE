@@ -1,10 +1,14 @@
 import { useEffect, useState } from "react";
 import { getProjectDetail, getProjectPMEvaluation } from "../../common/api";
-import { useNavigate, useParams } from "react-router-dom";
+import { useLocation, useNavigate, useParams } from "react-router-dom";
 
 const useEvaluationList = () => {
     const naviage = useNavigate();
+    const location = useLocation();
     const params = useParams();
+    const [projectTitle, setProjectTitle] = useState('');
+    const [endDate, setEndDate] = useState('');
+    const [customer, setCustomer] = useState('');
     const [evaluationList, setEvaluationList] = useState([]);
     const [projectParticipants, setProjectParticipants] = useState([]);
     const [selectedEmployee, setRow] = useState('');
@@ -19,6 +23,10 @@ const useEvaluationList = () => {
             setProjectParticipants(list2);
         }
         fetch();
+
+        setProjectTitle(location.state.projectTitle);
+        setEndDate(location.state.endDate);
+        setCustomer(location.state.customer);
     }, []);
 
     const selectRow = (row) => {
@@ -41,6 +49,9 @@ const useEvaluationList = () => {
         selectRow,
         btnActivated,
         projectParticipants,
+        projectTitle,
+        endDate,
+        customer
     }
 }
 

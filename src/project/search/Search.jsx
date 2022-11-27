@@ -77,8 +77,15 @@ function Search() {
               <td>{projectInfo.endDate}</td>
               <td>
                 <h3>
-                  <Link to={`/project/${projectInfo.id}/evaluation`}>
-                    상세검색
+                  <Link to={{
+                    pathname: `/project/${projectInfo.id}/evaluation`
+                  }}
+                  state= {{
+                    projectTitle: projectInfo.projectName,
+                    endDate: projectInfo.endDate,
+                    customer: projectInfo.customer,
+                  }}>
+                    이동하기
                   </Link>
                 </h3>
               </td>

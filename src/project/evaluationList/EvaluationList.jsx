@@ -8,17 +8,19 @@ import ProjectInfo from "./ProjectInfo";
 import ControlledAccordions from "./ControlledAccordions";
 
 const EvaluationList = () => {
-    const { evaluationList, btnClickHandler, selectRow, btnActivated, projectParticipants }  = useEvaluationList();
+    const { evaluationList, btnClickHandler, selectRow, 
+            btnActivated, projectParticipants,
+            projectTitle, endDate, customer }  = useEvaluationList();
     return (
         <div>
             <Box>
-                <ProjectTitle title={{ projectTitle: '써머프로젝트2'}}/>
+                <ProjectTitle title={{ projectTitle: projectTitle}}/>
                 <Grid container spacing={2}>
                     <Grid item xs={6}>
                         <ProjectBar />
                     </Grid>
                     <Grid item xs={6}>
-                        <ProjectInfo info={{ endDate: '2022-12-05', customer: 'LG CNS' }} />
+                        <ProjectInfo info={{ endDate: endDate, customer: customer }} />
                     </Grid>
                 </Grid>
             
