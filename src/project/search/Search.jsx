@@ -56,7 +56,7 @@ function Search() {
           검색
         </button>
       </div>
-      <h3>Test Project: 세미프로젝트1</h3>
+      <h3>Test Project: 써머프로젝트2</h3>
       {projectInfo === "" ? (
         <div></div>
       ) : (

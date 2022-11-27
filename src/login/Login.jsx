@@ -85,8 +85,8 @@ function Login() {
               Login
             </button>
           </div>
-          <h3>Test ID: owner16</h3>
-          <h3>Test PW: lived35</h3>
+          <h3>Test ID: breeds50</h3>
+          <h3>Test PW: hands33</h3>
         </div>
       )}
     </div>

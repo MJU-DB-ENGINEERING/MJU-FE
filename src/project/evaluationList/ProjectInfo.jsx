@@ -10,7 +10,7 @@ const ProjectInfo = (props) => {
     return (
          <Grid  container spacing={2} direction="column">
             <Grid item  sx={{ mt: 4 }}>
-                <Paper elevation={8} sx={{padding: 2}} variant="outlined" style={{width : 400}}>
+                <Paper sx={{padding: 2}} variant="outlined" style={{width : 400}}>
                     <Typography variant="h4" sx={{ my : 2}}>
                         고객사
                     </Typography>
@@ -20,7 +20,7 @@ const ProjectInfo = (props) => {
                 </Paper>
             </Grid>
             <Grid item>
-                <Paper elevation={8}  sx={{padding: 2}} variant="outlined" style={{width : 400}}>
+                <Paper sx={{padding: 2}} variant="outlined" style={{width : 400}}>
                     <Typography variant="h4" sx={{ my : 2}}>
                         마감일
                     </Typography>

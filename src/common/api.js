@@ -48,8 +48,8 @@ export const updateProjectPMEvaluation = async (props) => {
       evaluated, evaluator,
       projectId } = props;
 
-    const res = await fetch(HOST_URL + 'v1/evaluation/pm', {
-        method: 'POST',
+    const res = await fetch(HOST_URL + 'v1/evaluation/pm/update', {
+        method: 'PUT',
         headers: {
             "Content-Type": "application/json",
         },
