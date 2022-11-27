@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { searchProject } from "../../common/api";
+import { getCustomerName } from "../../common/api";
 
 function Search() {
   const [projectName, setProjectName] = useState("");
@@ -72,7 +73,7 @@ function Search() {
             <tbody>
               <td>{projectInfo.id}</td>
               <td>{projectInfo.projectName}</td>
-              <td>{projectInfo.cusomerId}</td>
+              <td>{getCustomerName(projectInfo.customerId)}</td>
               <td>{projectInfo.startDate}</td>
               <td>{projectInfo.endDate}</td>
               <td>
@@ -83,7 +84,7 @@ function Search() {
                   state= {{
                     projectTitle: projectInfo.projectName,
                     endDate: projectInfo.endDate,
-                    customer: projectInfo.customer,
+                    customer: projectInfo.customerId,
                   }}>
                     이동하기
                   </Link>

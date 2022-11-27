@@ -81,3 +81,8 @@ export const getProjectPMEvaluation = async (evaluatorName, projectid) => {
 
     return (res);
 }
+
+export const getCustomerName = (id) => {
+    if (id == 2)
+        return "LG CNS";
+}
